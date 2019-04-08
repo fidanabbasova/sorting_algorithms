@@ -31,6 +31,20 @@ int * selection_sort(int n, int a[100])
     }
     return a;
 }
+int * insertion_sort(int n, int a[100])
+{
+    int i, j;
+    for(i=0;i<n;i++){
+        for(j=i; j<n;j++){
+            if(a[j]<a[i]){
+                a[i]=a[i]+a[j];
+                a[j]=a[i]-a[j];
+                a[i]=a[i]-a[j];  
+            }
+        }
+    }
+    return a;
+}
 void output_arr(int n, int a[100]){
     int i;
     cout<<endl;
@@ -47,7 +61,7 @@ int main()
     int *arr;
     arr=input_arr(n);
     int *sort_arr;
-    sort_arr=selection_sort(n, arr);
+    sort_arr=insertion_sort(n, arr);
     output_arr(n, sort_arr);
     return 0;
 }
