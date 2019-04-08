@@ -45,6 +45,20 @@ int * insertion_sort(int n, int a[100])
     }
     return a;
 }
+int * bubble_sort(int n, int a[100])
+{
+    int i, j;
+    for(j=0;j<n;j++){
+        for(i=0; i<n-1; i++){
+            if(a[i]>a[i+1]){
+                a[i]=a[i]+a[i+1];
+                a[i+1]=a[i]-a[i+1];
+                a[i]=a[i]-a[i+1];
+            }
+        }
+    }
+    return a;
+}
 void output_arr(int n, int a[100]){
     int i;
     cout<<endl;
@@ -61,7 +75,7 @@ int main()
     int *arr;
     arr=input_arr(n);
     int *sort_arr;
-    sort_arr=insertion_sort(n, arr);
+    sort_arr=bubble_sort(n, arr);
     output_arr(n, sort_arr);
     return 0;
 }
